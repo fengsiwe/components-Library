@@ -4,18 +4,18 @@
 .btn{
   position: relative;
   display: inline-block;
-  font-weight: 500;
+  font-weight: 350;
   line-height: 1.5;
   color:$black;
   white-space: nowrap;
   text-align: center;
   vertical-align: middle;
   background-image: none;
-  border: 1.5px solid transparent;
-  box-shadow: 0 .5rem 1rem rgba($black, .15);
+  border: 1px solid transparent;
+  box-shadow: 0 .25rem 0.5rem rgba($black, .15);
   cursor: pointer;
   transition: color .15s ease-in-out, border-color .15s ease-in-out;
-  @include button-size(.25rem ,2rem,1rem,5px);
+  @include button-size(0.35rem ,2.5rem,1rem,3px);
   &.disabled,
   &[disabled]{
     cursor:not-allowed;
@@ -27,8 +27,54 @@
   }
 }
 .btn-lg{
-  @include button-size(.4rem ,2.5rem,1.25rem,6px);
+  @include button-size(0.5rem ,3rem,1.25rem,3px);
 }
 .btn-sm{
-  @include button-size(.1rem ,1.5rem,.75rem,4px);
+  @include button-size(.2rem ,2rem,.75rem,3px);
+}
+.btn-primary{
+  @include button-style($blue,$blue,$white);
+}
+
+.btn-danger{
+  @include button-style($danger,$danger,$white);
+}
+.btn-default{
+  @include button-style-default($white,$gray-4,$gray-4,$white,$blue,$blue);
+}
+.btn-round{
+  @include button-size(0.35rem ,2.5rem,1rem,20px);
+  @include button-style-default($white,$gray-4,$gray-4,$white,$blue,$blue);
+  &:hover{
+    padding:0.35rem 3rem;
+    transition: padding .5s ease-in-out ;
+  }
+  &:focus,
+  &.focus{
+    padding:0.35rem 3rem;
+  }
+
+}
+
+.btn-link{
+  font-weight: 350;
+  color: $link-color;
+  text-decoration: none;
+  box-shadow: none;
+  &:hover{
+    color: $blue;
+    text-decoration: $blue;
+  }
+  &:focus,
+  &.focus{
+    color:$blue ;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.disabled{
+    color:$gray-3 ;
+    pointer-events: none;
+  }
+
 }
