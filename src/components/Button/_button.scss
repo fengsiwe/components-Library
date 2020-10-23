@@ -1,6 +1,9 @@
 @import "../../style/variables";
 @import "../../style/mixin";
 
+// for light #DAE2F8 #D6A4A4 #ED4264 #FFEDBC
+// for dark #085078 #85D8CE #D7DDE8 #928DAB
+
 .btn{
   position: relative;
   display: inline-block;
@@ -25,6 +28,11 @@
       pointer-events: none;
     }
   }
+  &:focus,
+  &.focus{
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+  }
 }
 .btn-lg{
   @include button-size(0.5rem ,3rem,1.25rem,3px);
@@ -43,18 +51,45 @@
   @include button-style-default($white,$gray-4,$gray-4,$white,$blue,$blue);
 }
 .btn-round{
-  @include button-size(0.35rem ,2.5rem,1rem,20px);
-  @include button-style-default($white,$gray-4,$gray-4,$white,$blue,$blue);
+  @include button-size(0.5rem ,2.5rem,.75rem,20px);
+  background: linear-gradient(90deg, #3882ff,#ff3882,#ffb538,#3882ff);
+  background-size: 400%;
+  text-transform: uppercase;
+  color: $white;
+  z-index: 1;
   &:hover{
-    padding:0.35rem 3rem;
-    transition: padding .5s ease-in-out ;
+    animation: flash 10s infinite;
   }
   &:focus,
   &.focus{
-    padding:0.35rem 3rem;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+  }
+  &::before{
+    content: "";
+    position: absolute;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    top:-3px;
+    background: linear-gradient(90deg, #3882ff,#ff3882,#ffb538,#3882ff);
+    background-size: 400%;
+    border-radius: 20px;
+    filter: blur(15px);
+    z-index: -1;
   }
 
+  &:hover::before{
+    animation: flash 10s infinite;
+  }
 }
+@keyframes flash {
+  100%{
+    background-position: -400% 0;
+  }
+}
+
+
 
 .btn-link{
   font-weight: 350;

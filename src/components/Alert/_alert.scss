@@ -3,12 +3,88 @@
 
 .alert{
   position:relative;
-  display: inline-block;
-  background:$white;
-  padding: .1rem 2rem;
-  width :25rem;
-  border: 1px solid $blue;
-  border-radius: 5px;
+  background: #73a7ff;
+  //background: linear-gradient(90deg,#1A2980,#26D0CE);
+  padding:.5rem 1rem;
+  border: 1px solid #73a7ff;
+  border-radius: 3px;
   text-align: left;
+  margin-bottom: 15px;
+  width: 30rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color:$white;
+  z-index:1;
+  transform-style: preserve-3d;
+
+
+  &::before{
+    content: "";
+    position: absolute;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    top:-3px;
+    transform: translateZ(-1px);
+    background: linear-gradient(90deg,#1A2980,#26D0CE);
+    filter: blur(20px);
+  }
+
 
 }
+
+.alert flex-display{
+  display: flex;
+  align-items:flex-start;
+
+}
+.alert p{
+  margin-top: 0.5rem;
+}
+.alert span {
+
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover{
+    color: $gray-4;
+  }
+}
+
+.alert h1{
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  padding-left: 11rem;
+}
+
+.alert-success{
+  border: 1px solid $green;
+  background: $green;
+  &::before{
+    background: linear-gradient(90deg,#1CD8D2,#93EDC7);
+    filter: blur(30px);
+  }
+}
+
+.alert-warning{
+  border: 1px solid $orange;
+  background: $orange;
+  &::before{
+    background: linear-gradient(90deg,#FF512F,#F09819);
+    filter: blur(30px);
+  }
+}
+
+.alert-danger{
+  border: 1px solid $red;
+  background: $red;
+  &::before{
+    background: linear-gradient(90deg,#DD5E89,#F7BB97);
+    filter: blur(30px);
+  }
+
+
+}
+

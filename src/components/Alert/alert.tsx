@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import classNames from 'classnames'
-import {ButtonType, unitedButtonProps} from "../Button/button";
+import Button, {ButtonType, unitedButtonProps} from "../Button/button";
 
 export enum AlertType {
     Success = 'success',
@@ -36,10 +36,16 @@ const Alert: React.FC<AlertProps> = (props) => {
     if (show) {
         return (
             <div className={classes}  {...restProps}>
-                <p style={{ display: 'inline-block', paddingLeft:'20px',paddingRight:'20px'}}>{children}</p>
-                <span onClick={() => {
-                    setShow(!show)
-                }}  style={{ cursor: 'pointer', float: 'left', verticalAlign: 'middle'}} >&times;</span>
+                <div className='backgroundcolor'>
+                <div className='flex-display'>
+                    <span onClick={() => {
+                        setShow(!show)
+                    }} style={{cursor: 'pointer', float: 'left', verticalAlign: 'middle'}}>&times;</span>
+                    <h1>{alertType}!</h1>
+                </div>
+                <div className='flex-display2'>
+                    <p style={{display: 'inline-block',paddingLeft:'30px'}}>{children}</p></div>
+                </div>
             </div>
         )
     } else {
@@ -47,6 +53,10 @@ const Alert: React.FC<AlertProps> = (props) => {
     }
 
 
+}
+Alert.defaultProps = {
+
+    alertType: AlertType.Default
 }
 
 export default Alert
