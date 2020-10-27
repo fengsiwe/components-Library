@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import classNames from 'classnames'
-import Button, {ButtonType, unitedButtonProps} from "../Button/button";
 
 export enum AlertType {
     Success = 'success',
@@ -11,7 +10,7 @@ export enum AlertType {
 
 interface AlertProps {
     className?: string;
-    children: React.ReactNode;
+    children?: React.ReactNode;
     alertType?: AlertType;
 
 }

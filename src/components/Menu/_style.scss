@@ -1,0 +1,51 @@
+@import "../../style/variables";
+
+.menu{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 30px;
+  list-style: none;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0,.1);
+ // background: rgba(0, 0, 0,.1);
+
+
+  .menuItem{
+    padding:.5rem 1rem;
+    cursor: pointer;
+    line-height: 1.75rem;
+    text-transform: uppercase;
+    transition: color .15s ease-in-out, border-color .15s ease-in-out;
+    border-right: .5px solid $gray-3;
+    border-radius: 2px;
+
+
+    &:hover,&:focus{
+      text-decoration: none;
+    }
+    &.is-disabled{
+      color:$gray-4;
+      background: $gray-2;
+      pointer-events: none;
+    }
+    &:hover,&.highlighted{
+      color:$white;
+      background: $gray-3;
+      border-radius: 2px;
+      transition: all .5s ease 0s;
+
+    }
+  }
+}
+
+.menu-vertical{
+  flex-direction: column;
+  //border-bottom: 1px solid $gray-3;
+  border-bottom: 0px;
+  border-right:  0px;
+  .menuItem{
+    &.highlighted,&:hover{
+    border-bottom: 0px;
+    }
+  }
+}

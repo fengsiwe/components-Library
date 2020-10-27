@@ -23,12 +23,12 @@ interface ButtonProps{
     href?: string;
 }
 
-type nativeButtonProps = React.ButtonHTMLattributes<HTMLElement> & ButtonProps
-type anchorButtonProps = React.AnchorHTMLattributes<HTMLElement> & ButtonProps
+// type nativeButtonProps = React.ButtonHTMLattributes<HTMLElement> & ButtonProps
+// type anchorButtonProps = React.AnchorHTMLattributes<HTMLElement> & ButtonProps
 
-export type unitedButtonProps = Partial<nativeButtonProps & anchorButtonProps>
+// export type unitedButtonProps = Partial<nativeButtonProps & anchorButtonProps>
 
-const Button:React.FC<unitedButtonProps> = (props) =>{
+const Button:React.FC<ButtonProps> = (props) =>{
 
 
     const {disabled,
