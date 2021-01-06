@@ -23,15 +23,15 @@ function App() {
       </header>
 
         <Menu mode = 'vertical'>
-            <MenuItem index={0} >first</MenuItem>
-            <MenuItem index={1} >second</MenuItem>
-            <MenuItem index={2}>third</MenuItem>
+            <MenuItem >first</MenuItem>
+            <MenuItem >second</MenuItem>
+            <MenuItem >third</MenuItem>
         </Menu>
 
         <Menu mode = 'horizontal'>
-            <MenuItem index={0} >first</MenuItem>
-            <MenuItem index={1} >second</MenuItem>
-            <MenuItem index={2}>third</MenuItem>
+            <MenuItem >first</MenuItem>
+            <MenuItem >second</MenuItem>
+            <MenuItem >third</MenuItem>
         </Menu>
     </div>
   );

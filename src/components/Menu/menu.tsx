@@ -1,5 +1,6 @@
 import React ,{ createContext,useState }from 'react'
 import classNames from 'classnames'
+import  {MenuItemProps} from "./menuItem";
 
 type MenuMode = 'horizontal' |'vertical'
 
@@ -36,10 +37,24 @@ const Menu: React.FC<MenuProps> = (props)=>{
         index: currentSpot? currentSpot: 0,
         onSelect: handleClick,
     }
+    const checkChildren = () =>{
+        return React.Children.map(children,(child,index)=>{
+            const childElement = child as React.FunctionComponentElement<MenuItemProps>
+            const {displayName} = childElement.type
+            if(displayName==='MenuItem'){
+                return React.cloneElement(childElement,{index})
+            }
+            else{
+                console.error("The child added is not MenuItem component")
+            }
+        })
+
+    }
+
     return(
         <ul className={classes} style={style}>
             <MenuContext.Provider value={passedContext}>
-            {children}
+            {checkChildren()}
             </MenuContext.Provider>
         </ul>
     )
