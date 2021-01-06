@@ -34,7 +34,7 @@ const Alert: React.FC<AlertProps> = (props) => {
 
     if (show) {
         return (
-            <div className={classes}  {...restProps}>
+            <div className={classes} {...restProps}>
                 <div className='backgroundcolor'>
                 <div className='flex-display'>
                     <span onClick={() => {
